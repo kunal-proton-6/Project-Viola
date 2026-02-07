@@ -9,7 +9,7 @@ Web Navigation:
   - "open google"      : Opens Google search
   - "open youtube"     : Opens YouTube channel
   - "open github"      : Opens GitHub profile
-  - "open stack overflow" : Opens Stack Overflow
+
 
 Music Control:
   - "play [song name]" : Plays a song from library (virtual, checkpoint, ping, overthinker, playlist)
@@ -88,21 +88,22 @@ def process_command(c):
     c = c.lower()
     print("Processing command: " + c)
     
-    # Web Navigation Commands
-    if "open google" in c:
-        speak("Opening Google...")
-        webbrowser.open("https://www.google.com")
+    # Web Navigation (Short & Sweet)
+    sites = {
+        "google": "https://www.google.com",
+        "youtube": "https://www.youtube.com/@LotusOutlook",
+        "github": "https://github.com/lotus-outlook-6",
+
+    }
     
-    elif "open youtube" in c:
-        speak("Opening Youtube...")
-        webbrowser.open("https://www.youtube.com/@LotusOutlook")
-    
-    elif "open github" in c:
-        speak("Opening GitHub...")
-        webbrowser.open("https://github.com/lotus-outlook-6")
+    for site, url in sites.items():
+        if f"open {site}" in c:
+            speak(f"Opening {site}...")
+            webbrowser.open(url)
+            return
     
     # Information Commands
-    elif "what is the time" in c or "tell me the time" in c:
+    if "what is the time" in c or "tell me the time" in c:
         from datetime import datetime
         time = datetime.now().strftime("%I:%M %p")
         speak(f"The time is {time}")

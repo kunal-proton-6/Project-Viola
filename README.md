@@ -5,7 +5,7 @@ A powerful Python-based voice assistant that listens to your commands and perfor
 ## Features
 
 - **Voice Recognition**: Listens and understands natural language commands
-- **Text-to-Speech**: Responds with natural-sounding female voice feedback
+- **Text-to-Speech**: Responds with natural-sounding female voice feedback (offline via `pyttsx3`)
 - **Web Navigation**: Open popular websites like Google, YouTube, GitHub, and Stack Overflow
 - **Music Playback**: Play songs from a customizable music library on YouTube
 - **Time Announcement**: Ask for the current time
@@ -13,7 +13,6 @@ A powerful Python-based voice assistant that listens to your commands and perfor
 - **Easy to Extend**: Simple command structure to add new functionalities
 
 ## Quick Start
-
 ### 1. Get NewsAPI Key (Optional for News Feature)
 
 To use the news feature, get a free API key:
@@ -95,7 +94,7 @@ python main.py
 | `"open google"` | Opens Google search |
 | `"open youtube"` | Opens YouTube channel |
 | `"open github"` | Opens GitHub profile |
-| `"open stack overflow"` | Opens Stack Overflow |
+
 
 ### Music Control
 | Command | Action |
@@ -126,11 +125,6 @@ python main.py
 
 **Note:** Requires free API key from [NewsAPI.org](https://newsapi.org/) - see Quick Start section
 
-### Control
-| Command | Action |
-|---------|--------|
-| `"stop listening"` | Exit the program |
-
 ### General Knowledge (DuckDuckGo Search)
 | Command | Action |
 |---------|--------|
@@ -142,6 +136,11 @@ python main.py
 | *Any other query* | Performs a general web search |
 
 **Note:** No API key required for DuckDuckGo search!
+
+### Control
+| Command | Action |
+|---------|--------|
+| `"stop listening"` | Exit the program |
 
 ---
 
