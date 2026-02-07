@@ -19,12 +19,12 @@ NEWS_API_URL = "https://newsapi.org/v2/top-headlines"
 
 def get_india_news(language="en", country="in", category="general"):
     """
-    Fetch top 5 news headlines from India using NewsAPI.
+    Fetch top 5 news headlines about India using NewsAPI.
     
     Args:
         language (str): Language code (default: "en" for English)
-        country (str): Country code (default: "in" for India)
-        category (str): News category (general, business, entertainment, health, science, sports, technology)
+        country (str): Country code (default: "in" for India) - not used with current API
+        category (str): News category - not used with current API
     
     Returns:
         list: List of top 5 headlines as strings, or empty list if API call fails
@@ -32,19 +32,20 @@ def get_india_news(language="en", country="in", category="general"):
     
     # Check if API key is configured
     if NEWS_API_KEY == "YOUR_NEWSAPI_KEY":
-        return ["Please configure your NewsAPI key in newsLibrary.py to use this feature."]
+        return ["Please configure your NewsAPI key in .env file to use this feature."]
     
     try:
-        # Prepare API request parameters
+        # Use the 'everything' endpoint with query for India news (top-headlines with country=in returns 0 results)
         params = {
-            "country": country,
+            "q": "India",
             "apiKey": NEWS_API_KEY,
             "pageSize": 5,  # Get top 5 headlines
-            "sortBy": "publishedAt"
+            "sortBy": "publishedAt",
+            "language": language
         }
         
         # Make API request
-        response = requests.get(NEWS_API_URL, params=params, timeout=10)
+        response = requests.get("https://newsapi.org/v2/everything", params=params, timeout=10)
         response.raise_for_status()  # Raise exception for bad status codes
         
         # Parse JSON response

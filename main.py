@@ -137,11 +137,13 @@ def process_command(c):
         speak("Fetching the latest news from India. Please wait...")
         headlines = newsLibrary.get_india_news()
         
-        # Speak each headline
-        for headline in headlines:
-            speak(headline)
-        
-        speak("That's all the news for now.")
+        if headlines:
+            # Speak each headline
+            for headline in headlines:
+                speak(headline)
+            speak("That's all the news for now.")
+        else:
+            speak("Sorry, I couldn't fetch any news at the moment. Please try again later.")
     
     # Default case: command not recognized
     else:
