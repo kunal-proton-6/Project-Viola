@@ -1,3 +1,5 @@
+![Build Status](https://github.com/kunal-proton-6/Project-Viola/actions/workflows/python-app.yml/badge.svg)
+
 # Viola - AI Voice Assistant
 
 A powerful Python-based voice assistant that listens to your commands and performs various tasks using speech recognition and text-to-speech technology.
