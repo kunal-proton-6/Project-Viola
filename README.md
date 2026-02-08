@@ -278,6 +278,4 @@ Contributions welcome! Here's how:
 
 ---
 
----
-
 Developed with ❤️ by Kunal and GitHub Copilot
